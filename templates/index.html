@@ -89,7 +89,7 @@
       <div class="logo-name">Digit Recognizer</div>
     </div>
 
-    <div class="gpu-status-pill" id="gpuPill"><div class="gd" id="gpuDot"></div><span class="gt" id="gpuTxt">GPU...</span></div>
+    <div class="gpu-status-pill" id="gpuPill"><div class="gd" id="gpuDot"></div><span class="gt" id="gpuTxt">GPUs</span></div>
 
     <div>
       <div class="section-label">Model</div>
@@ -349,9 +349,9 @@ fetch('/api/model-info').then(r => r.json()).then(d => {
         document.getElementById('gpuDot').className = 'gd ' + (s === 'ready' || s === 'busy' ? s : '');
         var t = document.getElementById('gpuTxt');
         t.className = 'gt ' + (s === 'ready' || s === 'busy' ? s : '');
-        t.textContent = s === 'ready' ? 'GPU Online' : s === 'busy' ? 'GPU Busy' : 'GPU Offline';
+        t.textContent = s === 'ready' ? 'GPUs Online' : s === 'busy' ? 'GPUs Busy' : 'GPUs Offline';
       }).catch(function(){
-        document.getElementById('gpuTxt').textContent = 'GPU Offline';
+        document.getElementById('gpuTxt').textContent = 'GPUs Offline';
       });
   }
   upd(); setInterval(upd, 20000);
