@@ -7,11 +7,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#090909;--surface:#141414;--surface-2:#1a1a1a;--border:#222;--border-l:#2e2e2e;--text:#ebebeb;--dim:#aaa;--muted:#666;--accent:#8b0044;--accent2:#660033;--radius:10px}
+    :root{--bg:#0c1322;--surface:#141f36;--surface-2:#16223c;--border:#22304d;--border-l:#2c3a5c;--text:#e9eef8;--dim:#a3b1cc;--muted:#6e7f9d;--accent:#6494e8;--accent2:#3f74d4;--radius:10px}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.6}
 
     .shell{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
-    .sidebar{background:#0d0d0d;border-right:1px solid var(--border);padding:1.75rem 1.4rem;display:flex;flex-direction:column;gap:1.3rem;position:sticky;top:0;height:100vh;overflow-y:auto}
+    .sidebar{background:#0c1322;border-right:1px solid var(--border);padding:1.75rem 1.4rem;display:flex;flex-direction:column;gap:1.3rem;position:sticky;top:0;height:100vh;overflow-y:auto}
     .main{padding:2.25rem 2.5rem;display:flex;flex-direction:column;align-items:center}
 
     .logo{display:flex;align-items:center;gap:.75rem}
@@ -24,7 +24,7 @@
 
     .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
     .stat-chip{background:var(--surface-2);border:1px solid var(--border);border-radius:7px;padding:.55rem .65rem;text-align:center}
-    .stat-chip-val{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:600;color:#c4006a}
+    .stat-chip-val{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:600;color:#7fa6ee}
     .stat-chip-lbl{font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:.1rem}
 
     .how-list{font-size:.76rem;color:var(--dim);line-height:1.7;padding-left:1rem}
@@ -38,13 +38,13 @@
     .canvas-col{display:flex;flex-direction:column;gap:.85rem}
     .draw-wrap{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border-l);background:#000}
     #drawCanvas{display:block;cursor:crosshair;touch-action:none}
-    .canvas-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#333;font-size:.95rem;pointer-events:none;transition:opacity .3s}
+    .canvas-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#2c3a5c;font-size:.95rem;pointer-events:none;transition:opacity .3s}
     .canvas-hint.hidden{opacity:0}
 
     .btn-row{display:flex;gap:.6rem}
     .btn{flex:1;padding:.65rem;border:none;border-radius:8px;font-size:.88rem;font-weight:600;font-family:inherit;cursor:pointer;transition:background .2s}
     .btn-clear{background:var(--surface-2);color:var(--dim);border:1px solid var(--border-l)}
-    .btn-clear:hover{color:var(--text);border-color:#3a3a3a}
+    .btn-clear:hover{color:var(--text);border-color:#38486e}
 
     .preview-row{display:flex;align-items:center;gap:.75rem}
     .preview-label{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
@@ -52,7 +52,7 @@
 
     .result-col{display:flex;flex-direction:column;gap:1rem}
     .big-result{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1.75rem;display:flex;align-items:center;gap:1.5rem;min-height:118px}
-    .big-digit{font-size:3.6rem;font-weight:800;font-family:'JetBrains Mono',monospace;color:#c4006a;line-height:1;min-width:60px;text-align:center}
+    .big-digit{font-size:3.6rem;font-weight:800;font-family:'JetBrains Mono',monospace;color:#7fa6ee;line-height:1;min-width:60px;text-align:center}
     .big-meta{flex:1}
     .big-conf{font-size:1.05rem;font-weight:700}
     .big-sub{font-size:.78rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:.2rem}
@@ -63,18 +63,18 @@
     .dist-row{display:grid;grid-template-columns:18px 1fr 52px;align-items:center;gap:.75rem;margin-bottom:.45rem}
     .dist-digit{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:600;color:var(--dim);text-align:center}
     .dist-bar-bg{height:9px;background:var(--surface-2);border-radius:999px;overflow:hidden}
-    .dist-bar{height:100%;border-radius:999px;background:#3a3a3a;transition:width .35s ease,background .35s}
-    .dist-bar.top{background:linear-gradient(90deg,var(--accent2),#c4006a)}
+    .dist-bar{height:100%;border-radius:999px;background:#38486e;transition:width .35s ease,background .35s}
+    .dist-bar.top{background:linear-gradient(90deg,var(--accent2),#7fa6ee)}
     .dist-pct{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--muted);text-align:right}
-    .dist-pct.top{color:#c4006a;font-weight:600}
+    .dist-pct.top{color:#7fa6ee;font-weight:600}
 
     @media(max-width:860px){.shell{grid-template-columns:1fr}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--border)}.work-row{grid-template-columns:1fr}.main{padding:1.5rem}}
 
-    .gpu-status-pill{display:inline-flex;align-items:center;gap:.45rem;padding:.28rem .7rem;border-radius:999px;border:1px solid #2a2a2a;background:#181818;font-size:.72rem;font-weight:600;letter-spacing:.03em;cursor:default;white-space:nowrap;width:fit-content}
-    .gpu-status-pill .gd{width:7px;height:7px;border-radius:50%;flex-shrink:0;background:#444}
+    .gpu-status-pill{display:inline-flex;align-items:center;gap:.45rem;padding:.28rem .7rem;border-radius:999px;border:1px solid #22304d;background:#141f36;font-size:.72rem;font-weight:600;letter-spacing:.03em;cursor:default;white-space:nowrap;width:fit-content}
+    .gpu-status-pill .gd{width:7px;height:7px;border-radius:50%;flex-shrink:0;background:#38486e}
     .gpu-status-pill .gd.ready{background:#4ade80;box-shadow:0 0 5px #4ade8077;animation:gpuGlow 2s ease-in-out infinite}
     .gpu-status-pill .gd.busy{background:#fbbf24;box-shadow:0 0 5px #fbbf2477;animation:gpuGlow 1s ease-in-out infinite}
-    .gpu-status-pill .gt{color:#555}
+    .gpu-status-pill .gt{color:#4a5c84}
     .gpu-status-pill .gt.ready{color:#4ade80}
     .gpu-status-pill .gt.busy{color:#fbbf24}
     @keyframes gpuGlow{0%,100%{opacity:1}50%{opacity:.35}}
